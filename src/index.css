@@ -28,3 +28,9 @@ body{
     height:100px;
     color:rgb(3, 56, 56);
 }
+
+.square:focus {
+  outline:none;
+  background-color: rgb(164, 194, 30);
+
+}
