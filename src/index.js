@@ -3,37 +3,45 @@ import ReactDOM from "react-dom";
 
 import './index.css';
 
-const Square = () => {
+const Square = (props) => {
   return (
-    <div style={{
-      backgroundColor:'gold',
-      margin:10,
-      padding:20,
-    }}>
-      Square
+    <div className="square">
+      {props.value}
     </div>
   );
 };
 
 const Board = () => {
+  const renderSquare = (index) => {
+    return (
+      <Square value={index}/>
+    )
+  }
+
   return (
     <div style={{
       backgroundColor:'turquoise',
       margin:10,
       padding:20,
     }}>
-      <Square />
+      Board
+      <div className="board-row">
+        {renderSquare(0)}        {renderSquare(1)}        {renderSquare(2)}
+        </div>
+        <div className="board-row">
+        {renderSquare(3)}        {renderSquare(4)}        {renderSquare(5)}
+        </div>
+        <div className="board-row">
+        {renderSquare(6)}        {renderSquare(7)}        {renderSquare(8)}
+        </div>
     </div>
   )
 }
 
 const Game = () => {
     return (
-        <div style={{
-          backgroundColor:'bisque',
-          margin:10,
-          padding:20,  
-        }}>
+        <div className="game">
+            Game
             <Board />
         </div>
     )
