@@ -7,7 +7,7 @@ const Square = (props) => {
   return (
     <button 
       className="square"
-      onClick={() => {}}
+      onClick={props.onClickEvent}
       >
       {props.value}
     </button>
@@ -15,17 +15,25 @@ const Square = (props) => {
 };
 
 const Board = () => {
-  const initialSquares = [
-    null, null, null,
-    null, null, null,
-    null, null, null,
-  ];
+ 
+  const initialSquares = Array(9).fill(null);
   const [squares, setSquares] = useState(initialSquares);
 
+const handleClickEvent = (index) => {
+  //1 make a copy of the squares state array
+  const newSquares = [...squares];
+  //2 mutate the copy, setting the i element to "X"
+  newSquares[index] = "X";
+  //3 call t he setSquares function with the mutated copy
+  setSquares(newSquares);
 
+}
   const renderSquare = (index) => {
     return (
-      <Square value={squares[index]} />
+      <Square 
+      value={squares[index]}
+      onClickEvent={() => handleClickEvent(index)}
+      />
     )
   }
 
