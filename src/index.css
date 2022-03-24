@@ -2,5 +2,5 @@ body{
   background-color: rgb(161, 177, 22);
   color:white;
   margin:20px;
-  font: 36px "Roboto", sans-serif;
+  font: 36px "monospace", "Roboto", sans-serif;
 }
